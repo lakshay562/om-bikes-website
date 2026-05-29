@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OM Bikes Solution</title>
+    <style>
+        /* Base Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: #11141a;
+        }
+
+        body {
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Fixed Navigation Bar (Matches the translucent look) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: rgba(17, 20, 26, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* NEW SECTION: Full-Screen Hero Home Page (Matches 40153.jpg) */
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            /* Temporary high-quality placeholder image matching your red scooter/brick vibe */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            max-width: 900px;
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Generic Section Container (About & Contact) */
+        .section-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 120px 8% 60px 8%; /* Extra top padding so fixed header doesn't block text */
+            gap: 50px;
+            flex-wrap: wrap;
+            background: linear-gradient(180deg, #242a38 0%, #11141a 100%);
+        }
+
+        .content-side {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .media-side {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: -1px;
+        }
+
+        p {
+            color: #c9ced6;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* Form Design */
+        .form-group-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 12px 20px;
+            color: white;
+            outline: none;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        textarea {
+            border-radius: 15px;
+            resize: none;
+            height: 120px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #ffffff;
+        }
+
+        button {
+            background-color: #ffffff;
+            color: #11141a;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #e5e7eb;
+        }
+
+        /* Mock Image Placeholder */
+        .placeholder-box {
+            width: 100%;
+            max-width: 500px;
+            height: 380px;
+            background: #2a313d;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #6b7280;
+            font-size: 0.9rem;
+            background: #11141a;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">OM Bikes Solution</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <h1 class="hero-title">Specialized Solutions<br>Delivered with Precision.</h1>
+    </section>
+
+    <section id="about" class="section-container">
+        <div class="content-side">
+            <h1>About Us</h1>
+            <p><strong>Scooter trouble again? Don't let vehicle issues slow you down.</strong> Located right at pillar no. 1189 near Adarsh Nagar Mobile Market in Modinagar, Ghaziabad, Om Bikers Solution is here to bring you the ultimate peace of mind.</p>
+            <p>We understand the evolving needs of modern riders, which is why we specialize in both traditional petrol bikes and next-generation EV scooters. Our mission is to provide the local community with quick, reliable, and expert maintenance that you can count on. Armed with skilled technicians, genuine parts, and a wide range of EV chargers, we ensure your ride is always smooth, efficient, and safe.</p>
+        </div>
+        <div class="media-side">
+            <div class="placeholder-box">[ Scooter Visual Asset Here ]</div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-container">
+        <div class="content-side">
+            <h1>Get Back on the Road Swiftly!</h1>
+            <p>Experiencing vehicle trouble or need a routine checkup? Book your appointment today with Modinagar's trusted EV and petrol bike experts.</p>
+            <p><strong>Call to Book:</strong> 7417049665</p>
+            <p><strong>Visit Our Workshop:</strong> Om Bikers Solution, Pillar No. 1189, Near Adarsh Nagar Mobile Market, Modinagar, Ghaziabad</p>
+        </div>
+        <div class="content-side">
+            <form action="/submit-appointment" method="POST">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label>First Name (required)</label>
+                        <input type="text" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name (required)</label>
+                        <input type="text" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email (required)</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Message (required)</label>
+                    <textarea name="message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>OM Bikes Solution &copy; 2026 | email@example.com</p>
+    </footer>
+
+</body>
+</html>
